@@ -3,7 +3,8 @@ class Chef
     # Does this instance run sidekiq?
     def sidekiq_instance?
       role = node[:instance_role]
-      role == 'solo' || role == 'eylocal' || (role == 'util' && node[:name] =~ /^sidekiq/)
+      role == 'solo' || role == 'eylocal' || role == 'db_master'
+      # (role == 'util' && node[:name] =~ /^sidekiq/)
     end
   end
 end
